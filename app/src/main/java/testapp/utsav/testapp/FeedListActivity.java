@@ -28,7 +28,7 @@ import org.json.JSONException;
         import java.util.List;
 
 public class FeedListActivity extends AppCompatActivity {
-    private static final String TAG = "RecyclerViewExample";
+    private static final String TAG = "Testapp";
     private List<FeedItem> feedsList;
     private RecyclerView mRecyclerView;
     private MyRecyclerAdapter adapter;
@@ -111,7 +111,7 @@ public class FeedListActivity extends AppCompatActivity {
                 FeedItem item = new FeedItem();
                 item.setTitle(post.optString("club_name"));
                // item.setThumbnail(post.optString("thumbnail"));
-                item.setPost(post.optString("post_body"));
+                item.setPost(post.optString("event_name"));
                 item.setPostimage(post.optString("image_link"));
                 feedsList.add(item);
             }

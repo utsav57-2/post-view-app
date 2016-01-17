@@ -65,4 +65,5 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
     public int getItemCount() {
         return (null != feedItemList ? feedItemList.size() : 0);
     }
+
 }
