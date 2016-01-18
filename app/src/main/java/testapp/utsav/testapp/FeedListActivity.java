@@ -113,6 +113,10 @@ public class FeedListActivity extends AppCompatActivity {
                // item.setThumbnail(post.optString("thumbnail"));
                 item.setPost(post.optString("event_name"));
                 item.setPostimage(post.optString("image_link"));
+                item.setPostdetail(post.optString("post_body"));
+                item.setVenue(post.optString("event_venue"));
+                item.setEtime(post.optString("event_time"));
+                item.setPosttime(post.optString("timestamp"));
                 feedsList.add(item);
             }
         } catch (JSONException e) {

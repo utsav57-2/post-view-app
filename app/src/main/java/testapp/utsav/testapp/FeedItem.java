@@ -4,6 +4,7 @@ package testapp.utsav.testapp;
  * Created by Utsav's Pc on 10-01-2016.
  */
 public class FeedItem {
+    private String posttime;
     private String title;
     private String post;
     private String thumbnail;
@@ -11,6 +12,12 @@ public class FeedItem {
     private String postdetail;
     private String etime;
     private String postimage;
+    public String getPosttime() {
+        return posttime;
+    }
+    public void setPosttime(String posttime ) {
+        this.posttime=posttime;
+    }
     public String getTitle() {
         return title;
     }
@@ -34,15 +41,15 @@ public class FeedItem {
 
         this.post=post;
     }
-    public void setPostdetail(String post){
+    public void setPostdetail(String postdetail){
 
         this.postdetail=postdetail;
     }
-    public void setEtime(String post){
+    public void setEtime(String etime){
 
         this.etime=etime;
     }
-    public void setVenue(String post){
+    public void setVenue(String venue){
 
         this.venue=venue;
     }
