@@ -4,6 +4,7 @@ package testapp.utsav.testapp;
  * Created by Utsav's Pc on 10-01-2016.
  */
 public class FeedItem {
+    private String edate;
     private String posttime;
     private String title;
     private String post;
@@ -12,6 +13,12 @@ public class FeedItem {
     private String postdetail;
     private String etime;
     private String postimage;
+    public String getEdate() {
+        return edate;
+    }
+    public void setEdate(String edate ) {
+        this.edate=edate;
+    }
     public String getPosttime() {
         return posttime;
     }

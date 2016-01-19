@@ -33,7 +33,7 @@ public class FeedListActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MyRecyclerAdapter adapter;
     private ProgressBar progressBar;
-
+    private ArrayList<String> dataset;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +91,8 @@ public class FeedListActivity extends AppCompatActivity {
             // Download complete. Let us update UI
             progressBar.setVisibility(View.GONE);
 
+
+
             if (result == 1) {
                 adapter = new MyRecyclerAdapter(FeedListActivity.this, feedsList);
                 mRecyclerView.setAdapter(adapter);
@@ -117,6 +119,7 @@ public class FeedListActivity extends AppCompatActivity {
                 item.setVenue(post.optString("event_venue"));
                 item.setEtime(post.optString("event_time"));
                 item.setPosttime(post.optString("timestamp"));
+                item.setEdate(post.optString("event_date"));
                 feedsList.add(item);
             }
         } catch (JSONException e) {
