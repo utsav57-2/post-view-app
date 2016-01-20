@@ -5,13 +5,8 @@
     android:id="@+id/popup">
 <ImageView
     android:id="@+id/popimg"
-    android:layout_width="400dp"
-    android:layout_height="400dp"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:scaleType="centerCrop"
     />
-    <Button
-        android:background="#222"
-        android:id="@+id/popclose"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="back"/>
 </LinearLayout>

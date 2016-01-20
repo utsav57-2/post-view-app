@@ -47,7 +47,7 @@ public class FeedListActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         // Downloading data from below url
-        final String url = "http://vitacad-web.herokuapp.com/get_posts/api/v1.0/get";
+        final String url = "http://vitacad-web.herokuapp.com/vitwebapp/api/v1.0/get_posts";
         new AsyncHttpTask().execute(url);
     }
 
@@ -112,7 +112,7 @@ public class FeedListActivity extends AppCompatActivity {
                 JSONObject post = posts.optJSONObject(i);
                 FeedItem item = new FeedItem();
                 item.setTitle(post.optString("club_name"));
-               // item.setThumbnail(post.optString("thumbnail"));
+                item.setThumbnail(post.optString("club_logo"));
                 item.setPost(post.optString("event_name"));
                 item.setPostimage(post.optString("image_link"));
                 item.setPostdetail(post.optString("post_body"));
