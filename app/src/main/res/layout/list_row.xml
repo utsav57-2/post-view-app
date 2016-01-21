@@ -2,19 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     android:id="@+id/llay">
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:cardview="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="3dp"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:layout_weight=".11"
         android:id="@+id/card">
         <LinearLayout
             android:orientation="vertical"
+            android:padding="3dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundedge2">
           <RelativeLayout
 
               android:layout_width="match_parent"
@@ -133,13 +138,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <Button
-                    android:text="Details"
+                <TextView
+                    android:text="Touch for Details"
                     android:clickable="true"
                     android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:textStyle="italic"
+                    android:gravity="center"
                     android:textSize="13dp"
                     android:textColor="#222"
-                    android:background="#ffffff"
+                    android:background="#d3d3d3"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/extv" />

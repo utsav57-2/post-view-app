@@ -62,7 +62,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
             this.textView5= (TextView) view.findViewById(R.id.etime);
             this.textView6= (TextView) view.findViewById(R.id.time);
             this.textView7= (TextView) view.findViewById(R.id.edate);
-            this.extv=(Button)view.findViewById(R.id.extv);
+            this.extv=(TextView)view.findViewById(R.id.extv);
             this.imageView2= (ImageView) view.findViewById(R.id.postimage);
             this.ll=(LinearLayout)view.findViewById(R.id.expand);
         }
@@ -102,6 +102,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
 //.error(R.drawable.placeholder)
         //.placeholder(R.drawable.placeholder)
         //Setting text view title
+        //customViewHolder.cv.setRadius(18);
+        //customViewHolder.cv.setCardBackgroundColor(255255116);
         customViewHolder.textView.setText(Html.fromHtml(" "+feedItem.getTitle()));
         customViewHolder.textView2.setText(Html.fromHtml("Event Name:"+feedItem.getPost()));
         customViewHolder.textView3.setText(Html.fromHtml("<p>"+feedItem.getPostdetail())+"</p>");
