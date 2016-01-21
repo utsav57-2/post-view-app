@@ -17,10 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".FeedListActivity"></activity>
- <activity android:name=".popup"
+ <activity android:name=".popup2"
      android:theme="@style/Theme.Transparent">
      android:label="@string/app_name"
  </activity>
+        <activity android:name=".popup"
+            android:theme="@style/Theme.Transparent">
+            android:label="@string/app_name"
+        </activity>
      </application>
 
 </manifest>

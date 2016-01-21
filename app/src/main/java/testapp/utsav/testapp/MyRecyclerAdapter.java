@@ -104,19 +104,15 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         //Setting text view title
         customViewHolder.textView.setText(Html.fromHtml(" "+feedItem.getTitle()));
         customViewHolder.textView2.setText(Html.fromHtml("Event Name:"+feedItem.getPost()));
-
+        customViewHolder.textView3.setText(Html.fromHtml("<p>"+feedItem.getPostdetail())+"</p>");
         customViewHolder.textView4.setText(Html.fromHtml(" Venue: "+feedItem.getVenue()));
         customViewHolder.textView5.setText(Html.fromHtml(" Time: "+feedItem.getEtime()));
         customViewHolder.textView6.setText(Html.fromHtml(" " + feedItem.getPosttime()));
         customViewHolder.textView7.setText(Html.fromHtml(" Date: " + feedItem.getEdate()));
           customViewHolder.ll.setVisibility(View.GONE);
-       /* customViewHolder.imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow a=new popupWindow();
-                a;
-            }
-        });*/
+
+        /*
+        //card expand code removed for now due to bugs popup window introduced
         customViewHolder.ll.getViewTreeObserver().addOnPreDrawListener(
                 new ViewTreeObserver.OnPreDrawListener() {
 
@@ -129,10 +125,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
                         final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                         customViewHolder.ll.measure(widthSpec, heightSpec);
 
-                        customViewHolder.mAnimator = slideAnimator(customViewHolder, 0, customViewHolder.ll.getMeasuredHeight());
+                        customViewHolder.mAnimator = slideAnimator(customViewHolder, 0, customViewHolder.ll.getHeight());
                         return true;
                     }
-                });
+                });*/
 
 
         customViewHolder.imageView2.setOnClickListener(new View.OnClickListener() {
@@ -140,8 +136,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), popup.class).putExtra("iu",feedItem.getThumbnail()));
                 ImageView  test=(ImageView) v.findViewById(R.id.popimg);
-                popup a=new popup();
-                a.getData("http://www.youthedesigner.com/wp-content/uploads/2012/06/full_ps.jpg");
+                /*popup a=new popup();
+                a.getData("http://www.youthedesigner.com/wp-content/uploads/2012/06/full_ps.jpg");*/
 
 
             }
@@ -151,7 +147,11 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
 
             @Override
             public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), popup2.class).putExtra("iu",feedItem.getPostdetail()));
+                /*
+                //..removed for now
                 if (customViewHolder.ll.getVisibility() == View.GONE) {
+
                     customViewHolder.extv.setText(Html.fromHtml("Touch for Less Details"));
                     expand(customViewHolder);
                     customViewHolder.textView3.setText(Html.fromHtml(" " + feedItem.getPostdetail()));
@@ -213,16 +213,12 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         return (null != feedItemList ? feedItemList.size() : 0);
     }
 
-    private void expand(final CustomViewHolder cvh) {
+   /*
+    //Removed for now
+   private void expand(final CustomViewHolder cvh) {
         //set Visible
         cvh.ll.setVisibility(View.VISIBLE);
 
-		/* Remove and used in preDrawListener
-		final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-		final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-		mLinearLayout.measure(widthSpec, heightSpec);
-		mAnimator = slideAnimator(0, mLinearLayout.getMeasuredHeight());
-		*/
 
         cvh.mAnimator.start();
     }
@@ -270,5 +266,5 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
             }
         });
         return animator;
-    }
+    }*/
 }
