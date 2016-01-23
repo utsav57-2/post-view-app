@@ -83,8 +83,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_row, null);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
-        viewHolder.cv.setOnClickListener(MyRecyclerAdapter.this);
-        viewHolder.cv.setTag(viewHolder);
+        viewHolder.extv.setOnClickListener(MyRecyclerAdapter.this);
+        viewHolder.extv.setTag(viewHolder);
        // viewHolder.imageView2.setOnClickListener(MyRecyclerAdapter.this);
         //viewHolder.imageView2.setTag(viewHolder);
         return viewHolder;
@@ -144,7 +144,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
 
             }
         });
-        customViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+        customViewHolder.extv.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
