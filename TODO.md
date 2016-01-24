@@ -1,6 +1,6 @@
 ##Stuff todo.
 
- * Add SwipeRefresh Layout.
+ * ~~Add SwipeRefresh Layout.~~
  * Store the posts in memory and compare from received data while refreshing.
  * Add Notification Support.
  * Add pinch to zoom in image popup.
