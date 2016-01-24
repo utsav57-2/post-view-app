@@ -36,7 +36,7 @@ public class Dbhandler extends SQLiteOpenHelper {
     }
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_post + "("
-                + KEY_timestamp + " TEXT," + KEY_club + " TEXT,"
+                + KEY_timestamp + " T," + KEY_club + " TEXT,"
                 + KEY_club_img + " TEXT" +KEY_ename+"TEXT,"+KEY_edate+"TEXT,"+KEY_etime+"TEXT,"+KEY_evenue+"TEXT,"+KEY_image_link+"TEXT,"+KEY_post+"TEXT,"+ ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
     }

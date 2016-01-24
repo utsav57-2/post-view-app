@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:theme="@style/Theme.Transparent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:background="@drawable/roundedge2"
         android:padding="20dp"
@@ -18,7 +18,7 @@ android:text="longpostlongpostlongpostlongpostlongposlongpostlongpostlongpostlon
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/tvpost"
-    android:rotationX="20"
+    android:rotationX="8"
     android:scrollbars="vertical"
     />
         </LinearLayout>

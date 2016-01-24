@@ -1,16 +1,13 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="8dp"
+    android:id="@+id/swipout"
     android:paddingBottom="8dp" tools:context=".MainActivity">
 
-<android.widget.Toolbar
-    android:layout_above="@+id/rel1"
-    android:layout_width="match_parent"
-    android:layout_height="60dp">
 
-</android.widget.Toolbar>
     <RelativeLayout
         android:id="@+id/rel1"
         android:layout_width="match_parent"
@@ -29,4 +26,4 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
     </RelativeLayout>
-    </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>

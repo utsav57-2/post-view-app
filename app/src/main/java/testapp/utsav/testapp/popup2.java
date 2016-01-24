@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import android.widget.TextView;
 public class popup2 extends Activity{
     String iu;
     private TextView tvpost;
+    private ScaleGestureDetector SGD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,7 @@ public class popup2 extends Activity{
         if(extras!=null) {
             iu=extras.getString("iu");
         }
+
 
         DisplayMetrics d=new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(d);

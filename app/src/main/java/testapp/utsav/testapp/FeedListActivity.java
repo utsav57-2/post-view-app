@@ -10,12 +10,16 @@ import org.json.JSONException;
 
         import android.os.AsyncTask;
         import android.os.Bundle;
+        import android.os.Handler;
+        import android.support.v4.widget.SwipeRefreshLayout;
         import android.support.v7.app.AppCompatActivity;
         import android.support.v7.widget.LinearLayoutManager;
         import android.support.v7.widget.RecyclerView;
         import android.util.Log;
         import android.view.View;
-        import android.widget.ProgressBar;
+import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
         import android.widget.Toast;
         import org.json.JSONArray;
         import org.json.JSONException;
@@ -27,13 +31,17 @@ import org.json.JSONException;
         import java.util.ArrayList;
         import java.util.List;
 
+
+
 public class FeedListActivity extends AppCompatActivity {
     private static final String TAG = "Testapp";
     private List<FeedItem> feedsList;
     private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout mSwipeRefresh;
     private MyRecyclerAdapter adapter;
     private ProgressBar progressBar;
     private ArrayList<String> dataset;
+    LinearLayoutManager llm=new LinearLayoutManager(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +49,34 @@ public class FeedListActivity extends AppCompatActivity {
 
         // Initialize recycler view
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mRecyclerView.setLayoutManager(llm);
+        mSwipeRefresh=(SwipeRefreshLayout) findViewById(R.id.swipout);
 
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.VISIBLE);
-
-        // Downloading data from below url
         final String url = "http://vitacad-web.herokuapp.com/vitwebapp/api/v1.0/get_posts";
         new AsyncHttpTask().execute(url);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(RecyclerView view, int scrollState) {
+            }
+
+            @Override
+            public void onScrolled(RecyclerView view, int dx,int dy) {
+
+                mSwipeRefresh.setEnabled(llm.findFirstCompletelyVisibleItemPosition()==0);
+            }
+        });
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshContent();
+                }
+        });
+        // Downloading data from below url
+
     }
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
@@ -62,6 +90,7 @@ public class FeedListActivity extends AppCompatActivity {
         protected Integer doInBackground(String... params) {
             Integer result = 0;
             HttpURLConnection urlConnection;
+
             try {
                 URL url = new URL(params[0]);
                 urlConnection = (HttpURLConnection) url.openConnection();
@@ -78,6 +107,7 @@ public class FeedListActivity extends AppCompatActivity {
                     parseResult(response.toString());
                     result = 1; // Successful
                 } else {
+
                     result = 0; //"Failed to fetch data!";
                 }
             } catch (Exception e) {
@@ -96,6 +126,13 @@ public class FeedListActivity extends AppCompatActivity {
             if (result == 1) {
                 adapter = new MyRecyclerAdapter(FeedListActivity.this, feedsList);
                 mRecyclerView.setAdapter(adapter);
+                mSwipeRefresh.setRefreshing(false);
+                /*mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+                    @Override
+                public void OnRefresh(){
+                        refreshContent();
+                    }
+                });*/
             } else {
                 Toast.makeText(FeedListActivity.this, "Failed to fetch data!", Toast.LENGTH_SHORT).show();
             }
@@ -126,4 +163,15 @@ public class FeedListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    private void refreshContent(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                final String url = "http://vitacad-web.herokuapp.com/vitwebapp/api/v1.0/get_posts";
+                new AsyncHttpTask().execute(url);
+                mSwipeRefresh.setRefreshing(false);
+            }},0);
+
+        }
 }
