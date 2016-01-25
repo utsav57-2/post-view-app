@@ -53,8 +53,8 @@ public class Dbhandler extends SQLiteOpenHelper {
      * All CRUD(Create, Read, Update, Delete) Operations
      */
 
-    // Adding new contact
-    void addContact(Posts post) {
+    // Adding new post
+    void addPost(Posts post) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -72,7 +72,7 @@ public class Dbhandler extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    // Getting single contact
+    // Getting single post
     Posts getPosts(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -84,13 +84,13 @@ public class Dbhandler extends SQLiteOpenHelper {
 
         Posts post = new Posts(cursor.getString(0),
                 cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getString(8));
-        // return contact
+        // return post
         return post;
     }
 
-    // Getting All Contacts
+    // Getting All posts
     public List<Posts> getAllPosts() {
-        List<Posts> contactList = new ArrayList<Posts>();
+        List<Posts> postsList = new ArrayList<Posts>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_post;
 
@@ -112,12 +112,12 @@ public class Dbhandler extends SQLiteOpenHelper {
                 post.set_post(cursor.getString(8));
 
                 // Adding contact to list
-                contactList.add(post);
+                postsList.add(post);
             } while (cursor.moveToNext());
         }
 
         // return contact list
-        return contactList;
+        return postsList;
     }
 
     // Updating single contact
@@ -134,8 +134,8 @@ public class Dbhandler extends SQLiteOpenHelper {
                 new String[] { String.valueOf(contact.getID()) });
     }*/
 
-    // Deleting single contact
-    public void deleteContact(Posts post) {
+    // Deleting single post
+    public void deletePost(Posts post) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_post, KEY_timestamp + " = ?",
                 new String[] { String.valueOf(post.get_time_stamp()) });
@@ -144,7 +144,7 @@ public class Dbhandler extends SQLiteOpenHelper {
 
 
     // Getting Count
-    public int getContactsCount() {
+    public int getpostsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_post;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
