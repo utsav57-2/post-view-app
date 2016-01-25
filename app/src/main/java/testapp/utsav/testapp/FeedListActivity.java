@@ -57,10 +57,10 @@ public class FeedListActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         final String url = "http://vitacad-web.herokuapp.com/vitwebapp/api/v1.0/get_posts";
         new AsyncHttpTask().execute(url);
-        mSwipeRefresh.setColorSchemeResources(android.R.color.holo_blue_bright,
+    /*    mSwipeRefresh.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
+                android.R.color.holo_red_light);*/
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
@@ -149,7 +149,7 @@ public class FeedListActivity extends AppCompatActivity {
             JSONArray posts = response.optJSONArray("results");
             feedsList = new ArrayList<>();
 
-            for (int i = 0; i < posts.length(); i++) {
+            for (int i = (posts.length()-1); i >=0; i--) {
                 JSONObject post = posts.optJSONObject(i);
                 FeedItem item = new FeedItem();
                 item.setTitle(post.optString("club_name"));
@@ -164,7 +164,7 @@ public class FeedListActivity extends AppCompatActivity {
                 feedsList.add(item);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Toast.makeText(FeedListActivity.this, ""+e, Toast.LENGTH_SHORT).show();
         }
     }
     private void refreshContent(){

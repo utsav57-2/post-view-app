@@ -42,7 +42,6 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         protected TextView textView6;
         protected TextView textView7;
         protected ImageView imageView2;
-       protected  LinearLayout ll;
         protected ValueAnimator mAnimator;
         protected ImageView img3;
         protected LinearLayout ll2;
@@ -106,12 +105,12 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         //customViewHolder.cv.setCardBackgroundColor(255255116);
         customViewHolder.textView.setText(Html.fromHtml(" "+feedItem.getTitle()));
         customViewHolder.textView2.setText(Html.fromHtml("Event Name:"+feedItem.getPost()));
-        customViewHolder.textView3.setText(Html.fromHtml("<p>"+feedItem.getPostdetail())+"</p>");
+        //customViewHolder.textView3.setText(Html.fromHtml("<p>"+feedItem.getPostdetail())+"</p>");
         customViewHolder.textView4.setText(Html.fromHtml(" Venue: "+feedItem.getVenue()));
         customViewHolder.textView5.setText(Html.fromHtml(" Time: "+feedItem.getEtime()));
         customViewHolder.textView6.setText(Html.fromHtml(" " + feedItem.getPosttime()));
         customViewHolder.textView7.setText(Html.fromHtml(" Date: " + feedItem.getEdate()));
-          customViewHolder.ll.setVisibility(View.GONE);
+
 
         /*
         //card expand code removed for now due to bugs popup window introduced
@@ -193,7 +192,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
     }
     @Override
     public void onClick(View view) {
-        CustomViewHolder holder = (CustomViewHolder) view.getTag();
+      /*  CustomViewHolder holder = (CustomViewHolder) view.getTag();
      //   String theString = mDataset.get(holder.getPosition());
 
         // Check for an expanded view, collapse if you find one
@@ -206,7 +205,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         expandc = holder.getPosition();
         notifyItemChanged(expandc);
 
-       // Toast.makeText(mContext, "Clicked: "+theString, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(mContext, "Clicked: "+theString, Toast.LENGTH_SHORT).show();*/
     }
 
 

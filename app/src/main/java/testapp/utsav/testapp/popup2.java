@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class popup2 extends Activity{
     String iu;
     private TextView tvpost;
-    private ScaleGestureDetector SGD;
+    //private ScaleGestureDetector SGD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
