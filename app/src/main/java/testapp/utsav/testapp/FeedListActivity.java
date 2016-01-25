@@ -57,6 +57,10 @@ public class FeedListActivity extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         final String url = "http://vitacad-web.herokuapp.com/vitwebapp/api/v1.0/get_posts";
         new AsyncHttpTask().execute(url);
+        mSwipeRefresh.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override

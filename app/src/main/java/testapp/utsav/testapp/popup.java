@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
  * Created by Utsav's Pc on 20-01-2016.
  */
 public class popup extends Activity implements View.OnClickListener {
+    Dbhandler db=new Dbhandler(this);
     private Button b;
     private ImageView img3;
     private Matrix matrix = new Matrix();
