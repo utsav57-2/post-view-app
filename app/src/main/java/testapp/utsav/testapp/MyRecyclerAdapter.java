@@ -56,7 +56,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
             this.imageView = (ImageView) view.findViewById(R.id.thumbnail);
             this.textView= (TextView) view.findViewById(R.id.title);
             this.textView2= (TextView) view.findViewById(R.id.post);
-            this.textView3= (TextView) view.findViewById(R.id.postdetail);
+           // this.textView3= (TextView) view.findViewById(R.id.postdetail);
             this.textView4= (TextView) view.findViewById(R.id.venue);
             this.img3=(ImageView)view.findViewById(R.id.popimg);
             this.textView5= (TextView) view.findViewById(R.id.etime);
@@ -64,7 +64,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
             this.textView7= (TextView) view.findViewById(R.id.edate);
             this.extv=(TextView)view.findViewById(R.id.extv);
             this.imageView2= (ImageView) view.findViewById(R.id.postimage);
-            this.ll=(LinearLayout)view.findViewById(R.id.expand);
+           // this.ll=(LinearLayout)view.findViewById(R.id.expand);
         }
 
 
